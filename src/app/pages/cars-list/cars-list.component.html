@@ -1,0 +1,12 @@
+<div *ngIf="cars">
+    <div class="lista">
+        <app-car 
+        *ngFor="let car of cars" 
+        [carToShow]="car"
+        (onSendCar)="getCar($event)"
+        >
+            
+        </app-car>
+    </div>
+
+</div>

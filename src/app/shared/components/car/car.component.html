@@ -1,0 +1,11 @@
+<div *ngIf="carToShow" class="car">
+    <div>
+        <h2>{{carToShow.brand}}</h2>
+        <h2>{{carToShow.model}}</h2>
+        
+    </div>
+
+    <img src="{{carToShow.image}}" alt="{{carToShow.model}}">
+    <p></p><button (click)="sendCar(carToShow)">Detalles</button>
+
+</div>
