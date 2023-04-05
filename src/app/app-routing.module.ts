@@ -1,3 +1,4 @@
+import { CarDetailModule } from './pages/car-detail/car-detail.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './pages/home/home.module';
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: "car-detail",
-    loadChildren: () => import('./pages/cars-list/cars-list.module').then(m=>m.CarsListModule)
+    loadChildren: () => import('./pages/car-detail/car-detail.module').then(m=>m.CarDetailModule)
   }
 ];
 

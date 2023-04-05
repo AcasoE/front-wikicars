@@ -5,12 +5,10 @@ import { CarI } from '../car/models/car.interface';
   providedIn: 'root'
 })
 export class CarDetailService {
-private carShared?: CarI
+public selectedCar?: CarI 
 
-public setCarShared(car: CarI){
-  this.carShared = car
+public selectCar(car: CarI){
+  return this.selectedCar = car
 }
-public getCarshared(){
-  return this.carShared
-}
+
 }

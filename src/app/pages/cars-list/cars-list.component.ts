@@ -30,16 +30,12 @@ export class CarsListComponent implements OnInit {
     })
 }
 public getCar(car: CarI){
-  this.carDetailService.setCarShared(car)
+  this.carDetailService.selectCar(car)
   this.router.navigate(['/car-details'])
-  this.navigate()
 }
 public sendCar(car: CarI){
 }
-public navigate(){
 
-
-}
 private getCars(){
   this.carService.getCars().subscribe((cars: CarI[])=>{
     this.cars = cars

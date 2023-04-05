@@ -15,12 +15,8 @@ export class CarDetailComponent implements OnInit {
   ) {
    }
   public ngOnInit(): void {
-
+    this.car = this.carDetailService.selectedCar
   }
 
-  getCar() {
-    if (!this.car) {
-      this.car = this.carDetailService.getCarshared()
-    }
-  }
+  
 }
