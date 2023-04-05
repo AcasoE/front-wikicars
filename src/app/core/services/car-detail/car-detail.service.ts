@@ -7,8 +7,8 @@ import { CarI } from '../car/models/car.interface';
 export class CarDetailService {
 public selectedCar?: CarI 
 
-public selectCar(car: CarI){
-  return this.selectedCar = car
+public  selectCar(car: CarI){
+  return  this.selectedCar = car
 }
 
 }

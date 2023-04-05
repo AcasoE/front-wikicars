@@ -29,9 +29,11 @@ export class CarsListComponent implements OnInit {
       }
     })
 }
-public getCar(car: CarI){
+public  getCar(car: CarI){
+  console.log(car);
+  
   this.carDetailService.selectCar(car)
-  this.router.navigate(['/car-details'])
+  this.router.navigate(['/car-detail'])
 }
 public sendCar(car: CarI){
 }
