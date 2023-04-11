@@ -1,0 +1,109 @@
+
+<div class="form-container">
+  <h1 *ngIf="carToReviseFinish">Gracias! Tu coche se ha subido correctamente, lo revisaremos y si está corecto lo publicaremos.</h1>
+  <form *ngIf="carForm && carToReviseFinish == false" [formGroup]="carForm" (submit)="carAction()">
+    <div class="field">
+      <span>Marca: </span>
+      <select formControlName="brand">
+        <option *ngFor="let option of brandsOptions" [value]="option.value">
+          {{ option.value }}
+        </option>
+        <div
+          *ngIf="!carForm.get('brand')?.valid && carForm.get('brand')?.touched" class="error"
+        ><p>Debes introducir una marca</p>
+    </div>
+      </select>
+    </div>
+    <div class="field">
+        <span>Modelo: </span>
+      <input placeholder="Ej: Focus(mk1)" formControlName="model" />
+      <div
+        *ngIf="!carForm.get('model')?.valid && carForm.get('model')?.touched"
+      > <p>Debes introducir un modelo de vehículo</p>
+    </div>
+    </div>
+    <div class="field">
+        <span>Tipo de carrocería: </span>
+        <select formControlName="type">
+          <option *ngFor="let option of carOptions" [value]="option.value">
+            {{ option.value }}
+          </option>
+          <div
+            *ngIf="!carForm.get('type')?.valid && carForm.get('type')?.touched" class="error"
+          ><p>Debes introducir un tipo de carrocería</p>
+      </div>
+        </select>
+      </div>
+      <div class="field">
+        <span>Potencia(cv): </span>
+        <input type="number" min="10" formControlName="power" />
+        
+        <div
+          *ngIf="!carForm.get('power')?.valid && carForm.get('power')?.touched"
+        ><p>Debes introducir la potencia del vehículo</p></div>
+      </div>
+ 
+      <div class="field">
+        <span>Fuerza(Nm):</span>
+        <input  type="number" min="20" formControlName="par" />
+        <div
+          *ngIf="!carForm.get('par')?.valid && carForm.get('par')?.touched" class="error"
+        ><p>Debes introducir el número de Nm del vehículo</p></div>
+      </div>
+      <div class="field">
+        <span>Tipo de motor: </span>
+        <input placeholder="Ej: 4 cilindros en línea" formControlName="engineType" />
+        <div
+          *ngIf="!carForm.get('engineType')?.valid && carForm.get('engineType')?.touched" class="error"
+        ><p>Debes introducir el tipo de motor del vehículo</p></div>
+      </div>
+      <div class="field">
+        <span>Cilindrada(cm3):</span>
+        <input  type="number" min="500" formControlName="engineCil" />
+        <div
+          *ngIf="!carForm.get('engineCil')?.valid && carForm.get('engineCil')?.touched" class="error"
+        ><p>Debes introducir la cilindrada del vehículo</p></div>
+      </div>
+      <div class="field">
+        <span>Tracción: </span>
+        <select formControlName="traction">
+          <option *ngFor="let option of tractionoptions" [value]="option.value">
+            {{ option.value }}
+          </option>
+          <div
+            *ngIf="!carForm.get('traction')?.valid && carForm.get('traction')?.touched" class="error"
+          ><p>Debes introducir un tipo de tracción</p>
+      </div>
+        </select>
+      </div>
+      <div class="field">
+        <span>Año:</span>
+        <input  type="number" min="1800" formControlName="year" />
+        <div
+          *ngIf="!carForm.get('year')?.valid && carForm.get('year')?.touched" class="error"
+        ><p>Debes introducir el año completo de lanzamiennto del vehículo</p></div>
+      </div>
+      <div class="field">
+        <span>Peso(kg): </span>
+        <input  type="number" min="800" formControlName="heigh" />
+        <div
+          *ngIf="!carForm.get('heigh')?.valid && carForm.get('heigh')?.touched" class="error"
+        ><p>Debes introducir el peso del vehículo en kilogramos</p></div>
+      </div>
+      <div class="field">
+        <span>Velovidad máxima(kmh): </span>
+        <input  type="number" min="60" formControlName="speed" />
+        <div
+          *ngIf="!carForm.get('speed')?.valid && carForm.get('speed')?.touched" class="error"
+        ><p>Debes introducir la velocidad máximna del vehículo en kmh</p></div>
+      </div>
+      <div class="field">
+        <span>Imagen (resolución aproximada 1200x600): </span>
+        <input type="file" formControlName="image">
+      </div>
+      <button type="submit" class="error">{{validationMode? 'Validar' : 'Crear'}}</button>
+      <p *ngIf="submit">Coche subido correctamente, lo revisaremos y si cumple todos los estándares lo subiremos a nuestra base de datos</p>
+      <p *ngIf="hasFormErrors">Debes rellenar todos los campos del formulario correctamente y adjuntar una imagen</p>
+  </form>
+  <img class="img-to-validate" [src]="carToValidateImage">
+</div>

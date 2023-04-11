@@ -30,12 +30,8 @@ export class CarsListComponent implements OnInit {
     })
 }
 public  getCar(car: CarI){
-  console.log(car);
-  
   this.carDetailService.selectCar(car)
   this.router.navigate(['/car-detail'])
-}
-public sendCar(car: CarI){
 }
 
 private getCars(){

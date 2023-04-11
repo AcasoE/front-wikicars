@@ -32,6 +32,18 @@ const routes: Routes = [
   {
     path: "car-detail",
     loadChildren: () => import('./pages/car-detail/car-detail.module').then(m=>m.CarDetailModule)
+  },
+  {
+    path: "create",
+    loadChildren: () => import ('./pages/create-car/create-car.module').then(m=>m.CreatedCarModule)
+  },
+  {
+    path: "validation-list",
+    loadChildren: () => import ('./pages/admin/validation-cars/validation-cars.module').then(m=>m.ValidationCarsModule)
+  },
+  {
+    path: "edit-car/:id",
+    loadChildren: () => import ('./pages/admin/edit-car/edit-car-routing.module').then(m=>m.EditCarRoutingModule)
   }
 ];
 
