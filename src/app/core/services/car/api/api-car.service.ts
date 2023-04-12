@@ -36,7 +36,7 @@ export class ApiCarService {
   public deleteApiCarToreviseById(id: string): Observable<ApiCarI>{
     return this.http.delete<ApiCarI>(`${API_URL}/carstorevise/remove/${id}`)
   }
-  public getCarToReviseById(id: string): Observable<ApiCarI>{
+  public getApiCarToReviseById(id: string): Observable<ApiCarI>{
     return this.http.get<ApiCarI>(`${API_URL}/carstorevise/${id}`)
   }
   public getAllCarsTorevise(): Observable<ApiCarI[]>{

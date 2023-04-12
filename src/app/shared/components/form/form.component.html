@@ -1,7 +1,7 @@
-
+<h1 *ngIf="clear">Coche Subido con éxito a la BBDD</h1>
 <div class="form-container">
   <h1 *ngIf="carToReviseFinish">Gracias! Tu coche se ha subido correctamente, lo revisaremos y si está corecto lo publicaremos.</h1>
-  <form *ngIf="carForm && carToReviseFinish == false" [formGroup]="carForm" (submit)="carAction()">
+  <form enctype="multipart/form-data" *ngIf="carForm && carToReviseFinish == false && clear==false" [formGroup]="carForm" (submit)="carAction()">
     <div class="field">
       <span>Marca: </span>
       <select formControlName="brand">
@@ -97,13 +97,15 @@
           *ngIf="!carForm.get('speed')?.valid && carForm.get('speed')?.touched" class="error"
         ><p>Debes introducir la velocidad máximna del vehículo en kmh</p></div>
       </div>
-      <div class="field">
-        <span>Imagen (resolución aproximada 1200x600): </span>
-        <input type="file" formControlName="image">
+      <div *ngIf="!editMode" class="field">
+        <span>Url de la Imagen (resolución aproximada 1200x600): </span>
+        <input formControlName="image">
       </div>
-      <button type="submit" class="error">{{validationMode? 'Validar' : 'Crear'}}</button>
-      <p *ngIf="submit">Coche subido correctamente, lo revisaremos y si cumple todos los estándares lo subiremos a nuestra base de datos</p>
+      <button type="submit" class="error">{{editMode? 'Validar' : 'Crear'}}</button>
+      <p *ngIf="carToReviseFinish">Coche subido correctamente, lo revisaremos y si cumple todos los estándares lo subiremos a nuestra base de datos</p>
       <p *ngIf="hasFormErrors">Debes rellenar todos los campos del formulario correctamente y adjuntar una imagen</p>
+      <p *ngIf="errorBBDD">Ha habido un problema y tu coche no se ha subido</p>
+      <p></p>
   </form>
-  <img class="img-to-validate" [src]="carToValidateImage">
+  <img *ngIf="clear ==false" class="img-to-validate" [src]="carToValidateImage">
 </div>

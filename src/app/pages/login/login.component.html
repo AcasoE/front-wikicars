@@ -1,2 +1,11 @@
-<p>login</p>
+<form
+ *ngIf="loginForm"
+ [formGroup]="loginForm"
+ (submit)="login()"
+ >
+<input placeholder="Nombre" formGroupName="name">
+<input type="password" placeholder="Password" formControlName="password">
+<button type="submit">login</button>
+<p *ngIf="formError" style="color: red">{{formError}}</p>
+</form>
 <a [routerLink]="['/register']">registro</a>

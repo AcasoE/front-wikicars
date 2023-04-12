@@ -34,10 +34,10 @@ export const brandsOptions: BrandOption[] = [
 ]
 export const carOptions: CarOption[] = [
     { value: 'Compacto' },
-    { value: 'Coupé' },
+    { value: 'Deportivo' },
     { value: 'Sedán' },
     { value: 'Roadster' },
-    { value: 'Rancher' },
+    { value: 'Ranchera' },
 ];
 
 export const tractionOptions: TractionOption[] = [

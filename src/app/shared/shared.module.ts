@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CarComponent } from './components/car/car.component';
 import { CoreModule } from '../core/core.module';
 import { FormComponent } from './components/form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    CoreModule, ReactiveFormsModule
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ], exports: [
     CarComponent,
     FormComponent

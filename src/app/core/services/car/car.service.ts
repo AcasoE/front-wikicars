@@ -26,6 +26,10 @@ export class CarService {
     return this.apiCarService.getApiCarById(id).pipe(
       map((apiCar: ApiCarI) => this.transformCar(apiCar)))
   }
+  public getCarToReviseById(id: string): Observable<CarI>{
+    return this.apiCarService. getApiCarToReviseById(id).pipe(
+      map((apiCar: ApiCarI) => this.transformCar(apiCar)))
+  }
   public getCarsToRevise(): Observable<CarI[]> {
 
     return this.apiCarService.getAllCarsTorevise().pipe(

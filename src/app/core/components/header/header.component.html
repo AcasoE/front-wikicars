@@ -1,1 +1,20 @@
-<p>header works!</p>
+<p>WIKICARS</p>
+<div
+*ngIf="isLogged == true && isAdmin == false"  >
+<a
+
+*ngFor="let link of headerLinksUser"
+[routerLink]="[link.url]"
+class="link"
+routerLinkActive="link--active"
+>{{ link.content }}</a>
+</div>
+<div
+*ngIf="isAdmin  == true">
+<a
+*ngFor="let link of headerLinksAdmin"
+[routerLink]="[link.url]"
+class="link"
+routerLinkActive="link--active"
+>{{ link.content }}</a>
+</div>

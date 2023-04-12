@@ -45,6 +45,6 @@ export interface CarRequestBody {
     speed: number,
     image: string, 
 }
-export type CarType = 'Compacto' | 'Coupé' | 'Sedán' | 'Roadster' | 'Rancher'
+export type CarType = 'Compacto' | 'Deportivo' | 'Sedán' | 'Roadster' | 'Ranchera'
 export type TractionType = 'Trasera' | 'Delantera' | '4X4'
 export type BrandType = 'Seat' | 'Renault' | 'Peugeot' | 'Citroën' | 'Ford' | 'Opel' | 'Volkswagen' | 'Toyota' | 'Nissan' | 'Fiat' | 'Kia' | 'Hyundai' | 'Bmw' | 'Mercedes-Benz' | 'Audi' | 'Volvo' | 'Mazda' | 'Skoda' | 'Mini' | 'Land Rover' | 'Jeep' | 'Mitsubishi' | 'Suzuki' | 'Honda' | 'Alfa Romeo' | 'Lexus' | 'Subaru' | 'Porsche' | 'Jaguar' | 'Smart';

@@ -55,7 +55,7 @@ export class ValidationCarsComponent implements OnInit {
     },2000)
   }
   public editCar(id: string){
-    this.router.navigate(['edit-car', id])
+    this.router.navigate(['edit', id])
   }
 }
 

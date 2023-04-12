@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-admin.component.scss']
 })
 export class HeaderAdminComponent {
-
 }

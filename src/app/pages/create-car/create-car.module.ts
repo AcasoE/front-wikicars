@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CreatedCarRoutingModule } from './create-car-routing.module';
 import { CreateCarComponent } from './create-car.component';
-import { SharedModule } from "../../shared/shared.module";
+import { SharedModule } from "src/app/shared/shared.module";
 
 
 @NgModule({

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditCarComponent } from './edit-car.component';
+import { EditComponent } from './edit.component';
 
 const routes: Routes = [
   {
-    path: "",
-    pathMatch: 'full',
-    component: EditCarComponent
+    path:"",
+    pathMatch: "full",
+    component: EditComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EditCarRoutingModule { }
+export class EditRoutingModule { }

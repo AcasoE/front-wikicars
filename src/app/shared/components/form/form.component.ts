@@ -12,7 +12,7 @@ import { brandsOptions, tractionOptions, carOptions } from './config/form.config
 })
 export class FormComponent implements OnInit {
   @Input() public car?: CarI;
-  @Input() public validationMode: boolean = false;
+  @Input() public editMode: boolean = false;
   public carForm?: FormGroup;
   public brandsOptions = brandsOptions;
   public tractionoptions = tractionOptions;
@@ -21,6 +21,8 @@ export class FormComponent implements OnInit {
   public submit: boolean = false;
   public carToReviseFinish: boolean = false
   public carToValidateImage: string = "";
+  public clear: boolean = false
+  public errorBBDD: boolean = false
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -30,34 +32,59 @@ export class FormComponent implements OnInit {
   public ngOnInit(): void {
     this.initForm()
   }
-  public carAction(){
-    if (this.carForm?.valid){
-      if(this.validationMode){
-        this.editCar()
+  public carAction() {
+    if (this.carForm?.valid) {
+      if (this.editMode) {
+        this.submitNewCar()
       } else {
         this.createCar()
+
       }
       this.carForm.reset()
-    } else{
+    } else {
       this.hasFormErrors = true
     }
-
   }
-  public createCar(){
+  public createCar() {
     this.hasFormErrors = false
-    this.carService.createCarToRevise(this.carForm?.value).subscribe((car)=>{
-      this.carToReviseFinish = true
-      setTimeout(()=>{
-        this.router.navigate(['../cars-list'])
-      }, 3000)
+    this.carService.createCarToRevise(this.carForm?.value).subscribe((car) => {
+
+      if (car) {
+        this.carToReviseFinish = true
+        setTimeout(() => {
+          this.router.navigate(['../cars-list'])
+        }, 3000)
+      } else {
+        this.errorBBDD = true
+      }
+    })
+  }
+  public submitNewCar() {
+    if (!this.car) { return }
+    this.hasFormErrors = false
+    this.carService.acceptCarToRevise(this.car).subscribe((car) => {
+      if (car) {
+        this.clear = true
+        setTimeout(() => {
+          this.router.navigate(['../cars-list'])
+        }, 3000)
+      } else {
+        this.errorBBDD = true
+      }
     })
 
   }
-  public editCar(){
-    if(!this.car){return}
-    this.hasFormErrors = false
+  public finish() {
+    if (this.editMode) {
+      this.clear = true
+    } else {
+      this.carToReviseFinish = true
+    }
   }
   public initForm() {
+    if (this.car) {
+      this.carToValidateImage = this.car.image
+    }
     this.carForm = this.formBuilder.group({
       brand: new FormControl(this.car?.brand || '', [Validators.required]),
       model: new FormControl(this.car?.model || '', [Validators.required]),
