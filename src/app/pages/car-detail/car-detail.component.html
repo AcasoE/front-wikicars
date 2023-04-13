@@ -11,4 +11,5 @@
     <p>Año lanzamiento: {{car.year}}</p>
     <p>Peso: {{car.heigh}}</p>
     <p>Velocidad máxima: {{car.speed}}</p>
+    <button *ngIf="isAdmin" (click)="deleteCar()">Eliminar</button>
 </div>

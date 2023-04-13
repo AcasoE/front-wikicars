@@ -26,14 +26,18 @@ export class CarService {
     return this.apiCarService.getApiCarById(id).pipe(
       map((apiCar: ApiCarI) => this.transformCar(apiCar)))
   }
+  public deleteCarByID(id:string): Observable<CarI>{
+    return this.apiCarService.deleteApiCArById(id)
+  }
   public getCarToReviseById(id: string): Observable<CarI>{
-    return this.apiCarService. getApiCarToReviseById(id).pipe(
+    return this.apiCarService.getApiCarToReviseById(id).pipe(
       map((apiCar: ApiCarI) => this.transformCar(apiCar)))
   }
   public getCarsToRevise(): Observable<CarI[]> {
 
     return this.apiCarService.getAllCarsTorevise().pipe(
-      map((apicars: ApiCarI[])=>this.transformCars(apicars)),
+      map((apicars: ApiCarI[])=>
+      this.transformCars(apicars)),
       filter((cars:CarI[])=>{
         return cars.length > 0
       })
@@ -43,6 +47,8 @@ public createCarToRevise(body: CarRequestBody): Observable<CarI>{
   return this.apiCarService.postApiCarToRevise(body)
 }
 public deleteCarToRevise(id: string): Observable<CarI>{
+  console.log('hola');
+  
   return this.apiCarService.deleteApiCarToreviseById(id)
 }
 public acceptCarToRevise(car: CarI): Observable<CarI>{
@@ -57,7 +63,7 @@ public acceptCarToRevise(car: CarI): Observable<CarI>{
 }
   private transformCars(ApiCars: ApiCarI[]): CarI[] {
     const carsTransformed = ApiCars.map((car) => this.transformCar(car));
-    return carsTransformed
+    return carsTransformed 
   }
 
 

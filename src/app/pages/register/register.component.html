@@ -1,1 +1,25 @@
 <p>register works!</p>
+<form 
+*ngIf="userForm && !done"
+[formGroup]="userForm"
+(submit)="nuevoUsuario()"
+>
+<div class="field">
+    <span>Nombre de usuario:</span>
+    <input formControlName="name">
+</div>
+<div class="field">
+    <span>Edad:</span>
+    <input type="number" formControlName="edad">
+</div>
+<div class="field">
+    <span>Email: </span>
+    <input formControlName="email">
+</div>
+<div class="field">
+    <span>Contraseña: </span>
+    <input  formControlName="password">
+</div>
+<button type="submit">Registrarse</button>
+</form>
+<p *ngIf="done">Te has Registrado correctamente! </p>

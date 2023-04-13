@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeModule } from './pages/home/home.module';
 import { CarsDataResolver } from './core/resolvers/cars-data.resolver';
 import { AuthGuard } from './core/guards/auth.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -46,12 +47,12 @@ const routes: Routes = [
   {
     path: "validation-list",
     loadChildren: () => import ('./pages/admin/validation-cars/validation-cars.module').then(m=>m.ValidationCarsModule),
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard, AdminGuard]
   },
   {
     path: "edit/:id",
     loadChildren: () => import ('./pages/admin/edit/edit.module').then(m=>m.EditModule),
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard, AdminGuard]
   }
 ];
 

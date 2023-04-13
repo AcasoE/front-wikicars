@@ -20,7 +20,6 @@ public noCar(){
 
 
 public  selectCar(car: CarI){
-console.log(car);
 
   return  this.selectedCar = car
 }

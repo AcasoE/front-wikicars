@@ -1,4 +1,5 @@
 <p>WIKICARS</p>
+
 <div
 *ngIf="isLogged == true && isAdmin == false"  >
 <a
@@ -8,6 +9,8 @@
 class="link"
 routerLinkActive="link--active"
 >{{ link.content }}</a>
+<button *ngIf="isLogged" (click)="logout()">Logout</button>
+
 </div>
 <div
 *ngIf="isAdmin  == true">
@@ -17,4 +20,6 @@ routerLinkActive="link--active"
 class="link"
 routerLinkActive="link--active"
 >{{ link.content }}</a>
+<button *ngIf="isLogged" (click)="logout()">Logout</button>
 </div>
+

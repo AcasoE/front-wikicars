@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../../core/services/auth/auth.service';
 import { Component } from '@angular/core';
@@ -13,25 +14,30 @@ public formError: string = ''
 public loginForm?: FormGroup
 constructor(
   private authservice: AuthService,
-  private formBuilder: FormBuilder
+  private fb: FormBuilder,
+  private router: Router
 ){
-  this.loginForm = this.formBuilder.group({
+  this.loginForm = this.fb.group({
     name: ['', [Validators.required]],
     password: ['', [Validators.required]]
   })
+  this.authservice.isLogged$.subscribe((isLogged)=>{
+    if(isLogged){
+      this.router.navigate(['home'])
+    }
+  })
 }
 
-public login (){
+public login(){
   if (this.loginForm?.valid) {
     this.authservice.login(this.loginForm.value).subscribe({
-      next: (res) => console.log(res),
+      next: () => this.loginForm?.reset(),
       error: (err) => {
-        this.formError = err.console.error();
+        this.formError = err.error;
         
       }
       
     });
-    this.loginForm.reset()
   }
 }
 

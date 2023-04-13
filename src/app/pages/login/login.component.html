@@ -3,7 +3,7 @@
  [formGroup]="loginForm"
  (submit)="login()"
  >
-<input placeholder="Nombre" formGroupName="name">
+<input placeholder="Nombre" formControlName="name">
 <input type="password" placeholder="Password" formControlName="password">
 <button type="submit">login</button>
 <p *ngIf="formError" style="color: red">{{formError}}</p>
