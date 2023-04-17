@@ -24,7 +24,7 @@ constructor(
 ){
   this.router.events.subscribe((event)=>{
     if (event instanceof ChildActivationEnd && event.snapshot.url?.length > 0) {
-      this.currentUrl = event.snapshot.url[0].path
+      this.currentUrl = event.snapshot.url[0].path      
     }
 
 

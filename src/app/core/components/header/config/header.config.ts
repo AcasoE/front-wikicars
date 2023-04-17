@@ -11,7 +11,7 @@ export const headerlinksUser: HeaderLinkUser[] =[
     },
     {
         url: 'cars-list',
-        content:'Listado de productos'
+        content:'Listado de coches'
     }
 ]
 
