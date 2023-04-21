@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiCarI, CarRequestBody } from '../models/car.interface';
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://back-wikicars.vercel.app'
 
 
 @Injectable({

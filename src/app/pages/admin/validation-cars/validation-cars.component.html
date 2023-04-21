@@ -11,12 +11,12 @@
             <p>Potencia: {{car.power}} cv</p>
             <p>Fuerza: {{car.par}} Nm</p>
             <p>Motor: {{car.engineType}}</p>
-            <p>Cilindrada: {{car.engineCil}}cc</p>
+            <p>Cilindrada: {{car.engineCil}} cm3</p>
             <p>Tracción: {{car.traction}}</p>
             <p>Año lanzamiento: {{car.year}}</p>
             <p>Peso: {{car.heigh}}</p>
-            <p>Velocidad máxima: {{car.speed}}</p>
-            <p>{{car._id}}</p>
+            <p>Velocidad máxima: {{car.speed}} kmh</p>
+           
             <button (click)="editCar(car._id)">Editar</button>
             <button (click)="deleteCarToRevise(car._id)">Borrar</button>
             <button (click)="acceptCar(car)">Aceptar</button>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { IUser, IUserSingResponse } from './models/auth.model';
 import { Observable, ReplaySubject, tap } from 'rxjs';
 
-const AUTH_URL = 'http://localhost:8000/users'
+const AUTH_URL = 'https://back-wikicars.vercel.app/users'
 const TOKEN_KEY = 'jwt-auth-token';
 
 @Injectable({

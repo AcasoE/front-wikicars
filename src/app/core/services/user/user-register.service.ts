@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from '../auth/models/auth.model';
 
-const REGISTER_URL = 'http://localhost:8000/users/register'
+const REGISTER_URL = 'https://back-wikicars.vercel.app/register'
 
 
 @Injectable({

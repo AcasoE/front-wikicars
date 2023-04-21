@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiBrandI, BrandRequestBodyI } from '../models/brands.interface';
-const URL_BRANDS = 'http://localhost:8000'
+const URL_BRANDS = 'https://back-wikicars.vercel.app'
 
 @Injectable({
   providedIn: 'root'

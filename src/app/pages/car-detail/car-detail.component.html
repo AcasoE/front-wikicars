@@ -6,11 +6,11 @@
     <p>Potencia: {{car.power}} cv</p>
     <p>Fuerza: {{car.par}} Nm</p>
     <p>Motor: {{car.engineType}}</p>
-    <p>Cilindrada: {{car.engineCil}}cc</p>
+    <p>Cilindrada: {{car.engineCil}} cm3</p>
     <p>Tracción: {{car.traction}}</p>
     <p>Año de lanzamiento: {{car.year}}</p>
-    <p>Peso: {{car.heigh}}</p>
-    <p>Velocidad máxima: {{car.speed}}</p>
+    <p>Peso: {{car.heigh}} kg</p>
+    <p>Velocidad máxima: {{car.speed}} kmh</p>
     <div class="buttons">
       <button *ngIf="isAdmin" (click)="deleteCar()">Eliminar</button>
       <button *ngIf="isAdmin" (click)="upDateCar(car._id)">Editar</button>
