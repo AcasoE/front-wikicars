@@ -97,15 +97,15 @@
           *ngIf="!carForm.get('speed')?.valid && carForm.get('speed')?.touched" class="error"
         ><p>Debes introducir la velocidad máximna del vehículo en kmh</p></div>
       </div>
-      <div *ngIf="!editMode" class="field">
+      <div  class="field">
         <span>Url de la Imagen (resolución aproximada 1200x600): </span>
         <input formControlName="image">
       </div>
-      <button type="submit" class="error">{{editMode? 'Validar' : 'Crear'}}</button>
+      <button type="submit" class="error">{{editValidationMode || editMode? 'Validar' : 'Crear'}}</button>
       <p *ngIf="carToReviseFinish">Coche subido correctamente, lo revisaremos y si cumple todos los estándares lo subiremos a nuestra base de datos</p>
       <p *ngIf="hasFormErrors">Debes rellenar todos los campos del formulario correctamente y adjuntar una imagen</p>
       <p *ngIf="errorBBDD">Ha habido un problema y tu coche no se ha subido</p>
       <p></p>
   </form>
-  <img *ngIf="clear ==false" class="img-to-validate" [src]="carToValidateImage">
+  <img *ngIf="clear ==false" class="img-container" [src]="carToValidateImage">
 </div>

@@ -1,11 +1,13 @@
-<form
- *ngIf="loginForm"
- [formGroup]="loginForm"
- (submit)="login()"
- >
-<input placeholder="Nombre" formControlName="name">
-<input type="password" placeholder="Password" formControlName="password">
-<button type="submit">login</button>
-<p *ngIf="formError" style="color: red">{{formError}}</p>
-</form>
-<a [routerLink]="['/register']">registro</a>
+<div class="form-container">
+    <img src="https://res.cloudinary.com/dcarljfbe/image/upload/v1681467587/logo_n1yyuk.png" alt="logo">
+    <div>
+        <form class="form-container__form" *ngIf="loginForm" [formGroup]="loginForm" (submit)="login()">
+            <input placeholder="Nombre" formControlName="name">
+            <input type="password" placeholder="Password" formControlName="password">
+            <button type="submit">login</button>
+            <p *ngIf="formError" style="color: red">{{formError}}</p>
+        </form>
+    </div>
+    <p class="form-container__parrafo">¿Aún no eres miembro?  <a class="form-container__enlace" [routerLink]="['/register']">Regístrate aquí</a></p>
+    
+</div>

@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+public userName?: string 
 
+constructor(){
+  this.getUser()
+}
+
+
+public getUser(){
+  const token = localStorage.getItem('jwt-auth-token')
+  if(token){
+    let tokenParsed = JSON.parse(token)
+    this.userName = tokenParsed.nombre
+  }
+}
 }

@@ -12,7 +12,9 @@ import { brandsOptions, tractionOptions, carOptions } from './config/form.config
 })
 export class FormComponent implements OnInit {
   @Input() public car?: CarI;
-  @Input() public editMode: boolean = false;
+  @Input() public editValidationMode: boolean = false;
+  @Input() public editMode: boolean = false
+  @Input() public id:string = ""
   public carForm?: FormGroup;
   public brandsOptions = brandsOptions;
   public tractionoptions = tractionOptions;
@@ -31,11 +33,15 @@ export class FormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initForm()
+    
+    
   }
   public carAction() {
     if (this.carForm?.valid) {
-      if (this.editMode) {
+      if (this.editValidationMode) {
         this.submitNewCar()
+      }else if(this.editMode){
+        this.updateCar()
       } else {
         this.createCar()
 
@@ -53,7 +59,20 @@ export class FormComponent implements OnInit {
         this.carToReviseFinish = true
         setTimeout(() => {
           this.router.navigate(['../cars-list'])
-        }, 3000)
+        }, 2000)
+      } else {
+        this.errorBBDD = true
+      }
+    })
+  }
+  public updateCar(){
+    if (!this.car) { return }
+    this.carService.updateCar(this.carForm?.value, this.id).subscribe((car) => {
+      if (car) {
+        this.clear = true
+        setTimeout(() => {
+          this.router.navigate(['../cars-list'])
+        }, 2000)
       } else {
         this.errorBBDD = true
       }
@@ -67,7 +86,7 @@ export class FormComponent implements OnInit {
         this.clear = true
         setTimeout(() => {
           this.router.navigate(['../cars-list'])
-        }, 3000)
+        }, 2000)
       } else {
         this.errorBBDD = true
       }
@@ -75,7 +94,7 @@ export class FormComponent implements OnInit {
 
   }
   public finish() {
-    if (this.editMode) {
+    if (this.editValidationMode) {
       this.clear = true
     } else {
       this.carToReviseFinish = true

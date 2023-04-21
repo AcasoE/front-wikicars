@@ -1,25 +1,28 @@
-<p>register works!</p>
-<form 
-*ngIf="userForm && !done"
-[formGroup]="userForm"
-(submit)="nuevoUsuario()"
->
-<div class="field">
-    <span>Nombre de usuario:</span>
-    <input formControlName="name">
+<div class="form-container">
+    <img src="https://res.cloudinary.com/dcarljfbe/image/upload/v1681467587/logo_n1yyuk.png" alt="logo">
+    <form 
+    class="form-container__form"
+    *ngIf="userForm && !done"
+    [formGroup]="userForm"
+    (submit)="nuevoUsuario()"
+    >
+    <div class="form-container__field">
+        <span>Nombre de usuario</span>
+        <input formControlName="name">
+    </div>
+    <div class="form-container__field">
+        <span>Edad</span>
+        <input type="number" formControlName="edad">
+    </div>
+    <div class="form-container__field">
+        <span>Email </span>
+        <input formControlName="email">
+    </div>
+    <div class="form-container__field">
+        <span>Contraseña </span>
+        <input type="password" formControlName="password">
+    </div>
+    <button type="submit">Registrarse</button>
+    </form>
+    <p *ngIf="done">Te has Registrado correctamente! </p>
 </div>
-<div class="field">
-    <span>Edad:</span>
-    <input type="number" formControlName="edad">
-</div>
-<div class="field">
-    <span>Email: </span>
-    <input formControlName="email">
-</div>
-<div class="field">
-    <span>Contraseña: </span>
-    <input  formControlName="password">
-</div>
-<button type="submit">Registrarse</button>
-</form>
-<p *ngIf="done">Te has Registrado correctamente! </p>

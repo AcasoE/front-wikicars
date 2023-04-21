@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CarsListRoutingModule } from './cars-list-routing.module';
 import { CarsListComponent } from './cars-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     CarsListRoutingModule, 
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class CarsListModule { }

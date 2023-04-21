@@ -16,48 +16,32 @@ export class ApiCarService {
   ) { }
 
   public getApiCars(): Observable<ApiCarI[]> {
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`);
-    return this.http.get<ApiCarI[]>(`${API_URL}/cars`, {headers})
+;
+    return this.http.get<ApiCarI[]>(`${API_URL}/cars`)
   }
   public getApiCarById(id: string): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.get<ApiCarI>(`${API_URL}/cars/${id}`, {headers})
+    return this.http.get<ApiCarI>(`${API_URL}/cars/${id}`)
   }
   public postApiCar(body: CarRequestBody): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.post<ApiCarI>(`${API_URL}/cars/create`, body, {headers})
+    return this.http.post<ApiCarI>(`${API_URL}/cars/create`, body)
   }
   public updateApiCar(body: CarRequestBody, id: string): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.put<ApiCarI>(`${API_URL}/cars/update/${id}`, body, {headers})
+    return this.http.put<ApiCarI>(`${API_URL}/cars/update/${id}`, body)
   }
   public deleteApiCArById(id: string): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.delete<ApiCarI>(`${API_URL}/cars/delete/${id}`, {headers})
+    return this.http.delete<ApiCarI>(`${API_URL}/cars/delete/${id}`)
   }
   public postApiCarToRevise(body: CarRequestBody): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`);
-    return this.http.post<ApiCarI>(`${API_URL}/carstorevise/create`, body, {headers})
+    return this.http.post<ApiCarI>(`${API_URL}/carstorevise/create`, body)
   }
   public deleteApiCarToreviseById(id: string): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.delete<ApiCarI>(`${API_URL}/carstorevise/remove/${id}`, {headers})
+    return this.http.delete<ApiCarI>(`${API_URL}/carstorevise/remove/${id}`)
   }
   public getApiCarToReviseById(id: string): Observable<ApiCarI>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`)
-    return this.http.get<ApiCarI>(`${API_URL}/carstorevise/${id}`, {headers})
+    return this.http.get<ApiCarI>(`${API_URL}/carstorevise/${id}`)
   }
   public getAllCarsTorevise(): Observable<ApiCarI[]>{
-    const token = localStorage.getItem('jwt-auth-token');
-    const headers = new HttpHeaders().set('Authorization', `${token}`);
-    return this.http.get<ApiCarI[]>(`${API_URL}/carstorevise`, {headers})
+;
+    return this.http.get<ApiCarI[]>(`${API_URL}/carstorevise`)
   }
 }

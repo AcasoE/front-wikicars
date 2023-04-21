@@ -30,21 +30,31 @@ export class AuthService {
         
         const userStore = JSON.stringify({
           token: res.token,
-          nombre: res.userToLog.name,
           id: res.userToLog._id,
-          rol: res.userToLog.rol
         });
         localStorage.setItem(TOKEN_KEY, userStore);
-        const rol = JSON.parse(userStore)
         this.isLogged$.next(true)
-        if (rol.rol == "admin") {
+        if (res.userToLog.rol == "admin") {
           this.isAdmin$.next(true)
         }
         this.router.navigate(['home'])
       })
     )
   }
+  public isAdminGet():Observable<IUser>{
+    return this.http.get<IUser>(`${AUTH_URL}/rol`).pipe(
+      tap((res: IUser) => {
+        if (res.rol === "admin"){
+          this.isAdmin$.next(true)
+          return true
+        } else {return false}
+        
+/*         if (res.userloged.rol === "admin"){
+          this.isAdmin$.next(true)
 
+  } */})
+    )
+    }
   public logout() {
     const removeToken = localStorage.removeItem(TOKEN_KEY);
     this.isLogged$.next(false);
@@ -70,7 +80,7 @@ export class AuthService {
   }
   public getToken(): string | null {
     const userToken = localStorage.getItem(TOKEN_KEY);
-    return userToken ? JSON.parse(userToken)?.token : null
+    return userToken ? userToken : null
   }
 }
 

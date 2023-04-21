@@ -27,7 +27,7 @@ export const headerlinksAdmin: HeaderLinkAdmin[] = [
     },
     {
         url: 'cars-list',
-        content:'Listado de productos'
+        content:'Listado de coches'
     },
     {
         url: 'validation-list',

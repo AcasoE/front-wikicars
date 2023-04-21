@@ -1,4 +1,4 @@
-import { EditModule } from './pages/admin/edit/edit.module';
+import { EditModule } from './pages/admin/edit-validation/edit.module';
 import { CarDetailModule } from './pages/car-detail/car-detail.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -50,8 +50,13 @@ const routes: Routes = [
     canActivate:[AuthGuard, AdminGuard]
   },
   {
-    path: "edit/:id",
-    loadChildren: () => import ('./pages/admin/edit/edit.module').then(m=>m.EditModule),
+    path: "edit-validation/:id",
+    loadChildren: () => import ('./pages/admin/edit-validation/edit.module').then(m=>m.EditModule),
+    canActivate:[AuthGuard, AdminGuard]
+  },
+  {
+    path: "edit-cars/:id",
+    loadChildren: () => import ('./pages/admin/edit-cars/edit-cars.module').then(m=>m.EditCarsModule),
     canActivate:[AuthGuard, AdminGuard]
   }
 ];

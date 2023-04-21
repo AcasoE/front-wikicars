@@ -21,7 +21,6 @@ export class EditComponent {
     const carId = params['id'];
     this.carService.getCarToReviseById(carId).subscribe((car)=>{
       this.car = car
-      console.log(car);
       
     })
   })

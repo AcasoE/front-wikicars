@@ -3,9 +3,10 @@
 .div-brands{
     display: flex;
     flex-wrap: wrap;
-    margin: 10px;
-    padding: 30px;
+    margin: 0;
+    padding: 20px;
     justify-content: space-between;
+    background: linear-gradient(to left, black, rgb(85, 85, 34));    
 }
 
 .brand{

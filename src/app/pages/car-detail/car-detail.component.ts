@@ -40,5 +40,11 @@ public deleteCar(){
    
   }
 }
+ public upDateCar(id:string){
+
+  if(this.car){
+    this.router.navigate(['edit-cars', id ])
+  }
+ }
 
 }

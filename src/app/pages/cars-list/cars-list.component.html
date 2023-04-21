@@ -1,12 +1,20 @@
-<div *ngIf="cars">
-    <div class="lista">
-        <app-car 
-        *ngFor="let car of cars" 
-        [carToShow]="car"
-        (onSendCar)="getCar($event)"
-        >
-            
-        </app-car>
+<div class="container">
+    <div class="search">
+      <input class="search__input" [(ngModel)]="inputValue" placeholder="Buscar...">
     </div>
-
+    <div *ngIf="cars">
+        <div class="lista">
+            <app-car 
+                *ngFor="let car of cars | filerName:inputValue | paginate:currentPage:pageSize" 
+                [carToShow]="car"
+                (onSendCar)="getCar($event)"
+                class="lista__item"
+            ></app-car>
+        </div>
+        <div class="pagination">
+            <button class="pagination__button" (click)="goToPreviousPage()">Anterior</button>
+            <span class="pagination__text">Página {{ currentPage }} de {{totalPages(cars, pageSize)}}</span>
+            <button class="pagination__button" (click)="goToNextPage()">Siguiente</button>
+        </div>
+    </div>
 </div>

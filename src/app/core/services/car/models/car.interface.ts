@@ -32,18 +32,18 @@ export interface CarI {
     image: string, 
 }
 export interface CarRequestBody {
-    brand: BrandType,
-    model: string,
-    type: CarType,
-    power: number,
-    par: number,
-    engineType: string,
-    engineCil: number,
-    traction: TractionType,
-    year: number,
-    heigh: number,
-    speed: number,
-    image: string, 
+    brand?: BrandType,
+    model?: string,
+    type?: CarType,
+    power?: number,
+    par?: number,
+    engineType?: string,
+    engineCil?: number,
+    traction?: TractionType,
+    year?: number,
+    heigh?: number,
+    speed?: number,
+    image?: string, 
 }
 export type CarType = 'Compacto' | 'Deportivo' | 'Sedán' | 'Roadster' | 'Ranchera'
 export type TractionType = 'Trasera' | 'Delantera' | '4X4'

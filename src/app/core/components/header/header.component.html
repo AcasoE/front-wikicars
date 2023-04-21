@@ -8,8 +8,7 @@
     routerLinkActive="header__nav__links--active"
     >{{ link.content }}</a>
     <div>
-        <span>Bienvenido</span>
-        <button *ngIf="isLogged" (click)="logout()"  class="header__nav__button">Cerrar sesión</button>
+        <button *ngIf="isLogged" (click)="logout()"  class="header__nav__button">Logout</button>
     
         
     </div>
@@ -17,15 +16,15 @@
     <div
     *ngIf="isAdmin  === true" class="header__nav">
     <a
+    class="header__nav__links"
     *ngFor="let link of headerLinksAdmin"
     [routerLink]="[link.url]"
-    
-    routerLinkActive="--active"
+    routerLinkActive="header__nav__links--active"
     >{{ link.content }}</a>
     <button *ngIf="isLogged" (click)="logout()" class="header__nav__button">Logout</button>
     </div>
     <div class="header__div__logo">
-    <img  src="https://res.cloudinary.com/dcarljfbe/image/upload/v1681467587/logo_n1yyuk.png" alt="logo">
+    <img *ngIf="isLogged"  src="https://res.cloudinary.com/dcarljfbe/image/upload/v1681467587/logo_n1yyuk.png" alt="logo">
     </div>
 </div>
 

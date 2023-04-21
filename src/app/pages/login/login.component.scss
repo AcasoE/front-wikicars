@@ -1,0 +1,62 @@
+.form-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right, black, rgb(85, 85, 34));    
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  &__form{
+    padding: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__enlace{
+
+    color: rgb(247, 136, 33);
+    cursor: pointer;
+  }
+  &__parrafo{
+    color: white;
+  }
+  
+}
+
+.form-container__form input {
+  width: 80%;
+  padding: 8px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  background-color: #dbdbaf;
+  font-size: 16px;
+}
+
+/* Estilos para botón */
+.form-container__form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 18px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.form-container__form button:hover {
+  background-color: #45a049;
+}
+
+
+
+

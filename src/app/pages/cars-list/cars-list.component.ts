@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,  Router } from '@angular/router';
 import { CarDetailService } from 'src/app/core/services/car-detail/car-detail.service';
 import { CarI } from 'src/app/core/services/car/models/car.interface';
-
 @Component({
   selector: 'app-cars-list',
   templateUrl: './cars-list.component.html',
@@ -11,7 +10,10 @@ import { CarI } from 'src/app/core/services/car/models/car.interface';
 })
 export class CarsListComponent implements OnInit {
 
-  public cars?: CarI[]
+  public cars: CarI[] =[]
+  public inputValue: string= ""
+  public currentPage: number = 1
+  public pageSize: number = 6
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -40,7 +42,19 @@ private getCars(){
   })
 }
 
+public goToPreviousPage() {
+  if (this.currentPage > 1) {
+    this.currentPage--;
+  }
+}
 
+public goToNextPage() {
+  if (this.currentPage < this.cars.length / this.pageSize) {
+    this.currentPage++;
+  }
+}
 
-
+public totalPages(cars:CarI[], pageSize: number){
+  return Math.ceil(cars.length / pageSize)
+}
 }

@@ -47,9 +47,11 @@ public createCarToRevise(body: CarRequestBody): Observable<CarI>{
   return this.apiCarService.postApiCarToRevise(body)
 }
 public deleteCarToRevise(id: string): Observable<CarI>{
-  console.log('hola');
   
   return this.apiCarService.deleteApiCarToreviseById(id)
+}
+public updateCar(body: CarRequestBody, id: string): Observable<CarI>{
+return this.apiCarService.updateApiCar(body, id)
 }
 public acceptCarToRevise(car: CarI): Observable<CarI>{
   const acceptCarObservable = forkJoin([

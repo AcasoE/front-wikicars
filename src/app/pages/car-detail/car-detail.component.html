@@ -1,15 +1,24 @@
-<div *ngIf="car">
+<div class="car-details" *ngIf="car">
     <h3>{{car.brand}}</h3>
     <h2>{{car.model}}</h2>
     <img src="{{car.image}}" alt="{{car.model}}">
-    <p>Carriocería: {{car.type}}</p>
+    <p>Carrocería: {{car.type}}</p>
     <p>Potencia: {{car.power}} cv</p>
     <p>Fuerza: {{car.par}} Nm</p>
     <p>Motor: {{car.engineType}}</p>
     <p>Cilindrada: {{car.engineCil}}cc</p>
     <p>Tracción: {{car.traction}}</p>
-    <p>Año lanzamiento: {{car.year}}</p>
+    <p>Año de lanzamiento: {{car.year}}</p>
     <p>Peso: {{car.heigh}}</p>
     <p>Velocidad máxima: {{car.speed}}</p>
-    <button *ngIf="isAdmin" (click)="deleteCar()">Eliminar</button>
-</div>
+    <div class="buttons">
+      <button *ngIf="isAdmin" (click)="deleteCar()">Eliminar</button>
+      <button *ngIf="isAdmin" (click)="upDateCar(car._id)">Editar</button>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  

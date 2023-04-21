@@ -1,9 +1,9 @@
-<h1 *ngIf="remove">Coche borrado correctamente</h1>
-<h1 *ngIf="accept">Coche Aceptado correctamente y subido a BBDD</h1>
+<h1 *ngIf="remove" class="message">Coche borrado correctamente</h1>
+<h1 *ngIf="accept" class="message">Coche Aceptado correctamente y subido a BBDD</h1>
 
-<h1 *ngIf="!cars">No hay coches para revisar</h1>
-<div *ngIf="cars">
-    <div *ngFor="let car of cars">
+<h1 *ngIf="!cars" class="message">No hay coches para revisar</h1>
+<div *ngIf="cars" class="revision">
+    <div *ngFor="let car of cars" class="car-card">
             <h3>{{car.brand}}</h3>
             <h2>{{car.model}}</h2>
             <img src="{{car.image}}" alt="{{car.model}}">
